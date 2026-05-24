@@ -31,6 +31,17 @@ function loadConfig() {
 
   if (!Array.isArray(cfg.globalExtraRoleIds)) cfg.globalExtraRoleIds = [];
 
+  if (cfg.ponto) {
+    if (!cfg.ponto.operationalVoiceChannelName) {
+      cfg.ponto.operationalVoiceChannelName = "Operações RP";
+    }
+    if (!Array.isArray(cfg.ponto.adminRoleIds)) cfg.ponto.adminRoleIds = [];
+  }
+
+  if (cfg.embed && !Array.isArray(cfg.embed.allowedRoleIds)) {
+    cfg.embed.allowedRoleIds = [];
+  }
+
   return cfg;
 }
 

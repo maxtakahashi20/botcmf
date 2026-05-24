@@ -14,6 +14,7 @@ const {
 // Import explícito: em alguns hosts existe `config.json` na raiz e o Node pode
 // resolver `require("./config")` para JSON (sem `loadConfig`). Isso quebra o deploy.
 const { loadConfig } = require("./config/index.js");
+const { createDatabase } = require("./database/index.js");
 
 const TOKEN = process.env.DISCORD_TOKEN;
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
@@ -24,7 +25,11 @@ if (!CLIENT_ID) throw new Error("DISCORD_CLIENT_ID não definido no .env");
 const config = loadConfig();
 
 const client = new Client({
-  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildVoiceStates
+  ],
   partials: [Partials.GuildMember]
 });
 
@@ -95,6 +100,8 @@ function loadEvents() {
 }
 
 (async () => {
+  client.db = await createDatabase();
+
   const slashData = loadCommands();
   loadEvents();
 
@@ -105,6 +112,8 @@ function loadEvents() {
       await registerSlashCommands(slashData);
       // eslint-disable-next-line no-console
       console.log(`✅ Logado como ${client.user.tag} e comandos registrados.`);
+      // eslint-disable-next-line no-console
+      console.log(`📦 Banco: ${process.env.DATABASE_URL ? "PostgreSQL" : "SQLite"}`);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error("❌ Falha ao registrar slash commands:", err);

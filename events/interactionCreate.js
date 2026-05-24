@@ -8,7 +8,10 @@ const {
   ButtonStyle,
   StringSelectMenuBuilder
 } = require("discord.js");
-const { assertAllowed } = require("../utils/permissions");
+const { assertAllowed, assertPontoAdmin } = require("../utils/permissions");
+const { isPontoButton, handlePontoInteraction } = require("../modules/ponto/handlers");
+const { isEmbedInteraction, handleEmbedInteraction } = require("../modules/embed/handlers");
+const { assertEmbedAllowed } = require("../modules/embed/permissions");
 const {
   findOm,
   findGraduacao,
@@ -81,14 +84,18 @@ async function handleSlashCommand(client, interaction) {
   if (!cmd) return;
 
   try {
-    assertAllowed(interaction, client.config);
+    if (!cmd.public && !cmd.pontoAdmin && !cmd.embedAdmin) assertAllowed(interaction, client.config);
+    if (cmd.pontoAdmin) assertPontoAdmin(interaction, client.config);
+    if (cmd.embedAdmin) assertEmbedAllowed(interaction, client.config);
     await cmd.execute(client, interaction);
   } catch (err) {
     if (err?.code === "FORBIDDEN") {
-      return safeReply(interaction, {
-        content: "🚫 Você não tem permissão para usar este comando.",
-        ephemeral: true
-      });
+      const msg = cmd.pontoAdmin
+        ? "🚫 Este comando é exclusivo para administradores do bate-ponto."
+        : cmd.embedAdmin
+          ? "🚫 Você não tem permissão para usar o sistema de embeds."
+          : "🚫 Você não tem permissão para usar este comando.";
+      return safeReply(interaction, { content: msg, ephemeral: true });
     }
     console.error("[SLASH]", err);
     return safeReply(interaction, {
@@ -100,6 +107,14 @@ async function handleSlashCommand(client, interaction) {
 
 async function handleButton(client, interaction) {
   const { customId } = interaction;
+
+  if (isPontoButton(customId)) {
+    return handlePontoInteraction(client, interaction);
+  }
+
+  if (isEmbedInteraction(interaction)) {
+    return handleEmbedInteraction(client, interaction);
+  }
 
   if (customId === "solicitar_set") {
     const omMenu = new StringSelectMenuBuilder()
@@ -227,6 +242,10 @@ async function handleButton(client, interaction) {
 }
 
 async function handleSelectMenu(client, interaction) {
+  if (isEmbedInteraction(interaction)) {
+    return handleEmbedInteraction(client, interaction);
+  }
+
   const { customId, values } = interaction;
 
   if (customId === "select_om") {
@@ -289,6 +308,10 @@ async function handleSelectMenu(client, interaction) {
 }
 
 async function handleModalSubmit(client, interaction) {
+  if (isEmbedInteraction(interaction)) {
+    return handleEmbedInteraction(client, interaction);
+  }
+
   if (!interaction.customId.startsWith("modal_set_")) return;
 
   await interaction.deferReply({ ephemeral: true });

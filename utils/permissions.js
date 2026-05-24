@@ -12,5 +12,14 @@ function assertAllowed(interaction, config) {
   }
 }
 
-module.exports = { memberHasAnyRole, assertAllowed };
+function assertPontoAdmin(interaction, config) {
+  const adminRoleIds = config.ponto?.adminRoleIds ?? [];
+  if (!adminRoleIds.length || !memberHasAnyRole(interaction.member, adminRoleIds)) {
+    const err = new Error("FORBIDDEN");
+    err.code = "FORBIDDEN";
+    throw err;
+  }
+}
+
+module.exports = { memberHasAnyRole, assertAllowed, assertPontoAdmin };
 
