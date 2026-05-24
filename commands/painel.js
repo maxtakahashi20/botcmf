@@ -25,12 +25,18 @@ module.exports = {
     }
 
     const embed = new EmbedBuilder()
-      .setTitle("ROTA — Solicitar SET | ROTA")
-      .setDescription(
-        "Clique no botão abaixo para preencher o formulário de solicitação de SET."
-      )
-      .setColor(0xfee75c)
-      .setFooter({ text: "ROTA • Sistema de Solicitação de SET" })
+      .setTitle("Exército Brasileiro — Solicitar SET")
+      .addFields({
+        name: "📋 Como solicitar",
+        value:
+          "Clique em **Solicitar SET**\n" +
+          "Selecione a **OM** (Organização Militar)\n" +
+          "Selecione a **graduação**\n" +
+          "Preencha **nome RP** e **idade**\n" +
+          "Aguarde análise da equipe — você será avisado por DM"
+      })
+      .setColor(0x2d5016)
+      .setFooter({ text: "Exército Brasileiro • Sistema de Solicitação de SET" })
       .setTimestamp();
 
     const row = new ActionRowBuilder().addComponents(

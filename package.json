@@ -1,7 +1,7 @@
 {
   "name": "rota-recrutamento-bot",
   "version": "1.0.0",
-  "description": "Bot Discord para setagem de cargos e apelidos (ROTA) com discord.js v14.",
+  "description": "Bot Discord para setagem de cargos e apelidos (Exército Brasileiro) com discord.js v14.",
   "main": "index.js",
   "type": "commonjs",
   "engines": {

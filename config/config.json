@@ -1,25 +1,121 @@
 {
-  "guildId": "1489293035849384060",
+  "guildId": "1160476521866215454",
   "allowedRoleIds": [
-    "1489316402098602066",
-    "1489316892387577877",
-    "1489319949175488522"
+    "1160507113542529094",
+    "1160507148829200425"
   ],
-  "panelChannelId": "1495806978415530165",
-  "requestsChannelId": "1495823091052314775",
-  "onApprove": {
-    "nicknameTemplate": "❯ QPPM | {nome}",
-    "roleIds": [
-      "1489319948269522975",
-      "1489316417101631558",
-      "1489316417852538993",
-      "1489319950668529875",
-      "1489319951260061756",
-      "1489319952044392478",
-      "1489337911575969938",
-      "1492573242521686238",
-      "1489773188039573555",
-      "1489337673071198399"
-    ]
-  }
+  "panelChannelId": "1507965870637453424",
+  "requestsChannelId": "1285411219653791815",
+  "oms": [
+    {
+      "id": "bac",
+      "label": "1º Batalhão de Ações de Comandos",
+      "prefix": "[1° BAC]"
+    },
+    {
+      "id": "bipqdt",
+      "label": "27º Brigada de Infantaria Paraquedista",
+      "prefix": "[27 BI Pqdt]"
+    },
+    {
+      "id": "bfesp",
+      "label": "1º Batalhão de Forças Especiais",
+      "prefix": "[1° Bfesp]"
+    }
+  ],
+  "graduacoes": [
+    {
+      "id": "soldado",
+      "label": "Soldado",
+      "abbr": "Sd.",
+      "roleId": "1160507933734469632"
+    },
+    {
+      "id": "cabo",
+      "label": "Cabo",
+      "abbr": "Cb.",
+      "roleId": "1160507858929066054"
+    },
+    {
+      "id": "3_sargento",
+      "label": "3º Sargento",
+      "abbr": "3º Sgt.",
+      "roleId": "1160507649025134602",
+      "extraRoleIds": ["1160507557836771468"]
+    },
+    {
+      "id": "2_sargento",
+      "label": "2º Sargento",
+      "abbr": "2º Sgt.",
+      "roleId": "1160507626925326407",
+      "extraRoleIds": ["1160507557836771468"]
+    },
+    {
+      "id": "1_sargento",
+      "label": "1º Sargento",
+      "abbr": "1º Sgt.",
+      "roleId": "1160507602388660254",
+      "extraRoleIds": ["1160507557836771468"]
+    },
+    {
+      "id": "sub_tenente",
+      "label": "Sub Tenente",
+      "abbr": "Sub Ten.",
+      "roleId": "1160507575679340564"
+    },
+    {
+      "id": "aspirante",
+      "label": "Aspirante a Oficial",
+      "abbr": "Asp. Of.",
+      "roleId": "1160507417591820328",
+      "extraRoleIds": ["1160507372964425759"]
+    },
+    {
+      "id": "2_tenente",
+      "label": "2º Tenente",
+      "abbr": "2º Ten.",
+      "roleId": "1160507402949496892",
+      "extraRoleIds": ["1160507372964425759"]
+    },
+    {
+      "id": "1_tenente",
+      "label": "1º Tenente",
+      "abbr": "1º Ten.",
+      "roleId": "1160507388646920283",
+      "extraRoleIds": ["1160507372964425759"]
+    },
+    {
+      "id": "capitao",
+      "label": "Capitão",
+      "abbr": "Cap.",
+      "roleId": "1160507354954076210",
+      "extraRoleIds": ["1160507336654327808"]
+    },
+    {
+      "id": "major",
+      "label": "Major",
+      "abbr": "Maj.",
+      "roleId": "1160507163962257539",
+      "extraRoleIds": ["1160507336654327808"]
+    },
+    {
+      "id": "tenente_coronel",
+      "label": "Tenente Coronel",
+      "abbr": "Ten Cel.",
+      "roleId": "1160507148829200425",
+      "extraRoleIds": ["1160507336654327808"]
+    }
+  ],
+  "globalExtraRoleIds": [
+    "1293277580006260787",
+    "1481474230657749144",
+    "1293277713997631600",
+    "1293277839268778064",
+    "1481474581540765868",
+    "1481474681218273444",
+    "1481476827754266654",
+    "1481476931693187125",
+    "1481477063360774184"
+  ],
+  "recrutaRoleId": "1160507957608448010"
 }
