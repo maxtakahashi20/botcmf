@@ -1,11 +1,11 @@
 {
-  "guildId": "1160476521866215454",
+  "guildId": "1508227579054915837",
   "allowedRoleIds": [
-    "1160507113542529094",
+    "1508227579054915846",
     "1160507148829200425"
   ],
-  "panelChannelId": "1507965870637453424",
-  "requestsChannelId": "1285411219653791815",
+  "panelChannelId": "1508227579671216220",
+  "requestsChannelId": "1508578703108604215",
   "oms": [
     {
       "id": "bac",
@@ -119,15 +119,15 @@
   ],
   "recrutaRoleId": "1160507957608448010",
   "ponto": {
-    "panelChannelId": "1160479130387750922",
-    "operationalVoiceChannelId": "1160480388695736340",
-    "operationalVoiceChannelName": "🚨┃Serviços",
-    "logsChannelId": "1508119091083219014",
-    "adminRoleIds": ["1160528258048213074"]
+    "panelChannelId": "1508575055859159101",
+    "operationalVoiceChannelId": "1508227580145303683",
+    "operationalVoiceChannelName": "Voz",
+    "logsChannelId": "1508227579671216219",
+    "adminRoleIds": ["1508227579054915846"]
   },
   "embed": {
     "allowedRoleIds": [
-      "1160507113542529094",
+      "1508227579054915846",
       "1160528258048213074"
     ],
     "logsChannelId": "1508130811390591036"
